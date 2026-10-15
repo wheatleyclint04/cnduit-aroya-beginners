@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>CNDUIT &#xb7; AROYA for Beginners</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Semi+Condensed:wght@600;700&display=swap">
+<style>
+:root{--bg:#EFF3EE;--card:#FFFFFF;--ink:#17241D;--mute:#5B6B62;--line:#D3DDD5;--ok:#1F7A47;--okbg:#DFF1E5;--bad:#A9322A;--badbg:#F8E1DE;--vwc:#2A6DB0;--ec:#B77A00;--accent:#1F4D3A;--on:#FFFFFF;--night:rgba(23,36,29,.07);--hi:rgba(42,109,176,.14);
+--head:"Barlow Semi Condensed","Arial Narrow",sans-serif;--body:"Barlow",system-ui,-apple-system,"Segoe UI",sans-serif}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0F1713;--card:#18231C;--ink:#E6EFE8;--mute:#9DB0A3;--line:#2B3A31;--ok:#6FCB93;--okbg:#17321F;--bad:#F08A80;--badbg:#3A1C19;--vwc:#7FB3EA;--ec:#E8B04A;--accent:#6FCB93;--on:#0F1713;--night:rgba(255,255,255,.05);--hi:rgba(127,179,234,.18)}}
+:root[data-theme="dark"]{--bg:#0F1713;--card:#18231C;--ink:#E6EFE8;--mute:#9DB0A3;--line:#2B3A31;--ok:#6FCB93;--okbg:#17321F;--bad:#F08A80;--badbg:#3A1C19;--vwc:#7FB3EA;--ec:#E8B04A;--accent:#6FCB93;--on:#0F1713;--night:rgba(255,255,255,.05);--hi:rgba(127,179,234,.18)}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.5}
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+main{max-width:640px;margin:0 auto;padding:12px 16px 48px}
+h1{font-family:var(--head);font-size:34px;line-height:1.05;margin:8px 0 10px}
+h2{font-family:var(--head);font-size:22px;line-height:1.2;margin:0 0 12px}
+h3{font-family:var(--head);font-size:19px;line-height:1.25;margin:0 0 10px}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:22px}
+li{margin-bottom:6px}
+.mute{color:var(--mute);font-size:15px}
+.bar{height:6px;background:var(--line);border-radius:3px;margin:0 0 16px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--accent);transition:width .25s}
+.skill{font-size:14px;color:var(--mute);margin-bottom:6px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px;margin-bottom:14px}
+.data{border-left:4px solid var(--ec);padding:2px 0 2px 12px;margin:0 0 14px;font-size:16px}
+.data b{font-weight:600}
+.v{color:var(--vwc);font-weight:600}.e{color:var(--ec);font-weight:600}
+button{font:inherit;color:inherit;cursor:pointer}
+.opt{display:block;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:8px;padding:13px 14px;margin-bottom:10px;min-height:48px}
+.opt:focus-visible,.go:focus-visible,.sec:focus-visible,.chip:focus-visible,.flash:focus-visible,.mod:focus-visible,input:focus-visible,.tog:focus-visible,summary:focus-visible,label.chk:focus-within,.why:focus-visible{outline:3px solid var(--vwc);outline-offset:2px}
+.opt.right{border-color:var(--ok);background:var(--okbg)}
+.opt.wrong{border-color:var(--bad);background:var(--badbg)}
+.opt[disabled]{cursor:default}
+.why{border-top:1px solid var(--line);margin-top:14px;padding-top:14px}
+.why .lm{font-weight:600;color:var(--accent)}
+.go{background:var(--accent);color:var(--on);border:0;border-radius:8px;padding:14px 18px;min-height:48px;font-weight:600;width:100%;margin-top:6px}
+.sec{background:transparent;color:var(--accent);border:1.5px solid var(--accent);border-radius:8px;padding:12px 16px;min-height:48px;font-weight:600}
+.row{display:flex;gap:10px;flex-wrap:wrap}
+.row>*{flex:1 1 140px}
+.res{display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid var(--line);padding:9px 0}
+.big{font-family:var(--head);font-size:56px;line-height:1}
+.src{font-size:13px;color:var(--mute);margin-top:22px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:8px}
+.brand{font-family:var(--head);font-weight:700;letter-spacing:.12em;font-size:15px;color:var(--accent)}
+.tog{background:var(--card);border:1px solid var(--line);border-radius:8px;min-height:48px;min-width:48px;padding:8px 12px;font-size:15px}
+.mod{display:flex;align-items:center;gap:12px;width:100%;text-align:left;background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:12px 14px;margin-bottom:10px;min-height:56px}
+.mod .n{font-family:var(--head);font-weight:700;font-size:20px;min-width:30px;color:var(--accent)}
+.mod .t{flex:1}
+.mod .t b{display:block;font-weight:600}
+.mod .t span{font-size:14px;color:var(--mute)}
+.mod .st{font-size:14px;color:var(--mute);white-space:nowrap}
+.mod.done{border-color:var(--ok)}
+.mod.done .st{color:var(--ok);font-weight:600}
+.site{border:1.5px dashed var(--ec);border-radius:10px;padding:12px 14px;margin:12px 0;background:var(--card)}
+.site .lb{font-weight:600;color:var(--ec);font-size:14px;text-transform:uppercase;letter-spacing:.04em;margin-bottom:4px}
+.ex{border-left:4px solid var(--vwc);padding:2px 0 2px 12px;margin:0 0 12px}
+.tbl{width:100%;border-collapse:collapse;font-size:15px;margin-bottom:12px}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:7px 6px;text-align:left;vertical-align:top}
+.tbl th{font-weight:600;color:var(--mute);font-size:14px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;margin:10px 0}
+.chip{background:var(--card);border:1.5px solid var(--line);border-radius:24px;padding:10px 14px;min-height:48px}
+.chip[aria-pressed="true"]{border-color:var(--vwc);background:var(--hi);font-weight:600}
+svg{display:block;width:100%;height:auto}
+svg{font-size:12px}
+svg text{fill:var(--mute);font-family:var(--body);font-size:inherit}
+#app:focus{outline:none}
+.cv{font-size:19px}
+.vwcl{fill:none;stroke:var(--vwc);stroke-width:2.5}
+.ecl{fill:none;stroke:var(--ec);stroke-width:2.5;stroke-dasharray:7 5}
+.ref{stroke:var(--mute);stroke-width:1;stroke-dasharray:4 4;fill:none}
+.axis{stroke:var(--line);stroke-width:1}
+.nightb{fill:var(--night)}
+.dot{fill:var(--vwc)}
+.ph{fill:transparent;cursor:pointer}
+.ph.on{fill:var(--hi)}
+.ph:focus{outline:none}
+.ph:focus-visible{fill:var(--hi);stroke:var(--vwc);stroke-width:3}
+.tick{stroke:var(--mute);stroke-width:1.5}
+.lbl{font-weight:600}
+.exl{fill:var(--ec)!important;font-weight:600}
+.panel{border-top:1px solid var(--line);margin-top:10px;padding-top:12px;min-height:60px}
+.flashes{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+@media (max-width:420px){.flashes{grid-template-columns:1fr}}
+.flash{background:var(--card);border:1.5px solid var(--line);border-radius:10px;padding:14px;min-height:96px;text-align:left;width:100%}
+.flash .ft{font-family:var(--head);font-weight:700;font-size:19px}
+.flash .fh{font-size:13px;color:var(--mute)}
+.flash .fb{display:none;font-size:15px}
+.flash.flip{border-color:var(--vwc);background:var(--hi)}
+.flash.flip .fb{display:block}.flash.flip .fh{display:none}
+label.f{display:block;font-weight:600;font-size:15px;margin-bottom:4px}
+input[type=number],input[type=text]{font:inherit;color:var(--ink);background:var(--bg);border:1.5px solid var(--line);border-radius:8px;padding:10px 12px;min-height:48px;width:100%}
+input[type=range]{width:100%;min-height:48px;accent-color:var(--accent)}
+summary{min-height:48px;padding:12px 0;cursor:pointer;font-weight:600}
+.out{font-family:var(--head);font-size:40px;line-height:1.1;color:var(--accent)}
+.stat{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0}
+.stat div{background:var(--bg);border-radius:8px;padding:10px}
+.stat b{display:block;font-family:var(--head);font-size:26px;line-height:1.1}
+.stat span{font-size:13px;color:var(--mute)}
+.note{background:var(--okbg);border-radius:8px;padding:10px 12px;margin-bottom:10px;font-size:15px}
+.flag{background:var(--badbg);border-radius:8px;padding:10px 12px;margin-bottom:10px;font-size:15px}
+label.chk{display:flex;gap:12px;align-items:flex-start;padding:10px 4px;min-height:48px;border-bottom:1px solid var(--line);cursor:pointer}
+label.chk input{width:24px;height:24px;margin-top:2px;flex:none;accent-color:var(--accent)}
+.cert{border:3px double var(--accent);border-radius:12px;padding:28px 20px;text-align:center;background:var(--card)}
+.cert .nm{font-family:var(--head);font-size:34px;font-weight:700;margin:6px 0 10px;min-height:42px}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media print{body{background:#fff;color:#000}.noprint{display:none!important}main{max-width:none;padding:0}.cert{border-color:#1F4D3A;color:#000;background:#fff}.cert .mute{color:#444}}
+</style>
+</head>
+<body>
+<main>
+<div class="top noprint"><span class="brand">CNDUIT</span><button class="tog" id="themeBtn" type="button">Theme: Auto</button></div>
+<div class="bar noprint" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" id="pbar"><i id="pfill" style="width:0%"></i></div>
+<div id="app" tabindex="-1"><div class="card" id="boot"><h2>Loading the course&#x2026;</h2><p>If this message stays on screen, this viewer is not running the page&#x2019;s script. Open the file in Chrome or another full browser.</p></div></div>
+<script>window.onerror=function(m,s,l){if(window.__booted)return;var a=document.getElementById("app");if(a)a.innerHTML='<div class="card"><h2>The course could not start</h2><p>'+String(m).replace(/&/g,"&").replace(/</g,"<")+(l?" (line "+l+")":"")+'</p><p>Open the file in Chrome or another full browser.</p></div>';};</script>
+</main>
+<script>
+(function(){
+var KEY="cnduit-aroya-beginners-v1";
+var MEM={};
+function storeGet(k){try{var ls=window.localStorage;if(ls){var v=ls.getItem(k);if(v!==null&&v!==undefined)return v;}}catch(e){}return MEM.hasOwnProperty(k)?MEM[k]:null;}
+function storeSet(k,v){MEM[k]=v;try{var ls=window.localStorage;if(ls)ls.setItem(k,v);}catch(e){}}
+function each(list,fn){if(!list)return;for(var i=0;i<list.length;i++)fn(list[i],i);}
+function cls(el,name,on){if(on)el.classList.add(name);else el.classList.remove(name);}
+function up(el,test){while(el&&el.nodeType===1){if(test(el))return el;el=el.parentNode;}return null;}
+function isClickable(el){return el.tagName==="BUTTON"||(el.getAttribute&&el.getAttribute("data-ph")!==null);}
+function isPh(el){var c=el.getAttribute&&el.getAttribute("class");return !!c&&(" "+c+" ").indexOf(" ph ")>=0;}
+function load(){var s;try{s=JSON.parse(storeGet(KEY)||"{}")||{};if(typeof s!=="object")s={};}catch(e){s={};}
+ s.ans=s.ans||{};s.checks=s.checks||{};s.practice=s.practice||{tries:0,right:0};s.name=s.name||"";s.theme=s.theme||"auto";return s;}
+var S=load();
+function save(){try{storeSet(KEY,JSON.stringify(S));}catch(e){}}
+
+/* ---------- data ---------- */
+var RECIPE=[[0,20,null,25],[2,25,null,25],[4,30,null,25],[6,35,null,25],[10,45,null,30],[12,50,65,30],[14,55,70,30],[16,65,80,35],[19,70,85,35],[22,80,95,35],[25,90,105,40],[28,95,110,40],[31,100,115,40],[35,115,130,45],[38,125,140,45],[42,150,165,60]];
+var TEMPS=[[0,82,80],[1,82,75],[2,82,75],[4,80,72],[15,79,72],[22,78,68],[29,76,66],[36,74,65],[43,72,65],[50,71,65],[56,71,65],[57,70,65]];
+function stepFor(tab,d){var r=tab[0];for(var i=0;i<tab.length;i++){if(tab[i][0]<=d)r=tab[i];}return r;}
+function SITE(what){return '<div class="site"><div class="lb">Your site’s standard</div><p style="margin:0">'+what+' <b>Ask your lead / see your site’s standard.</b></p></div>';}
+
+var GLOSS=[
+["Field capacity (FC)","The settled VWC the substrate holds after drainage has substantially stopped. A fixed physical reference point. A spike during or right after a shot is not a higher FC."],
+["Pre-irrigation VWC","The VWC just before the first shot of the day. The bottom of the overnight dryback."],
+["Dryback","How far the substrate dries between irrigations. It has a size (%) and a duration (hours)."],
+["Relative dryback %","(FC − pre-irrigation VWC) ÷ FC × 100. The recommended CNDUIT way to express dryback."],
+["P1 / P2 / P3","Common names for parts of the irrigation day: P1 brings the substrate up to FC, P2 holds it there, P3 is the dryback. Sites differ, so follow your site’s structure."],
+["Shot / runtime / interval","One irrigation event, how long it runs (seconds), and the time between shots (minutes)."],
+["Runoff","Solution that drains out. Routine runoff supports root-zone stability. Extra runoff is the usual way to lower pore EC. Always say what a runoff % is a percentage of."],
+["Input EC","The EC of the feed going in, set by your site’s recipe. Never change it on your own."],
+["Pore EC","The EC of the water in the substrate, measured by the sensor. It is a different scale from input EC."],
+["Runoff EC","The EC of the drainage. It lags and depends on input EC, pore EC, and runoff volume. More runoff pulls it toward the feed."],
+["Channeling","Water running down a fast path and draining before the substrate is evenly wet. The sign is runoff before VWC reaches the known FC."],
+["VPD","Vapor pressure deficit, the climate’s “drying power.” It drives how fast plants drink, so it drives dryback."]
+];
+
+var PHASES={
+pre:{t:"Pre-irrigation low",vw:"At its lowest point of the day.",ec:"At or near its high for the day, because the water is concentrated after the dryback.",m:"This is where you read the overnight dryback: compare this low with yesterday’s settled FC."},
+ramp:{t:"Morning ramp",vw:"Climbs in steps, one bump per shot, until it reaches field capacity (FC).",ec:"Drops as fresh feed dilutes the substrate.",m:"A ramp that never reaches FC, or runoff before FC, needs a closer look."},
+day:{t:"Daytime",vw:"Depends on your site’s irrigation structure. It may hold near FC with small saw-teeth (the plant drinks, the next shot replaces it), or start drying back after the ramp.",ec:"Fairly steady if VWC is held. It rises if VWC is falling.",m:"Compare the curve with what your site’s recipe is designed to do."},
+night:{t:"Overnight dryback",vw:"After the last shot, VWC falls steadily. This is the dryback.",ec:"Rises as the substrate dries. Normally EC goes up as VWC goes down.",m:"The size and shape of this drop are what the recipe is steering."}
+};
+
+/* ---------- curve sketches, all labeled Example ---------- */
+function sk(paths,extra,legend,label){
+ return '<svg viewBox="0 0 300 150" role="img" aria-label="Example curve sketch: '+label+'"><text x="8" y="16" class="exl">Example</text>'+
+ '<line class="axis" x1="10" y1="135" x2="292" y2="135"/>'+(extra||"")+paths+
+ '<text x="292" y="16" text-anchor="end">'+(legend?'blue = VWC · dashed = pore EC':'blue = VWC')+'</text></svg>';}
+function ticks(a,b,step){var s="";for(var x=a;x<=b;x+=step)s+='<line class="tick" x1="'+x+'" y1="135" x2="'+x+'" y2="128"/>';return s+'<text x="'+a+'" y="148">shots</text>';}
+var NIGHT='<rect class="nightb" x="150" y="22" width="142" height="113"/><text x="156" y="34">dark period</text>';
+var DAYLINE='M12,48 L30,46 L45,48 L60,46 L75,48 L90,46 L105,48 L120,46 L135,48 L150,46 ';
+var SHAPES={
+steep:sk('<path class="vwcl" d="'+DAYLINE+'C175,70 200,105 290,124"/>',NIGHT+ticks(30,150,15),false,"a VWC line that drops fast after lights off"),
+drift:sk('<path class="vwcl" d="'+DAYLINE+'C190,50 240,56 290,60"/>',NIGHT+ticks(30,150,15),false,"a VWC line that barely drops overnight"),
+flat:sk('<path class="vwcl" d="M12,78 L290,78"/>',NIGHT+ticks(30,150,15),false,"a perfectly flat VWC line through shots and night"),
+sag:sk('<path class="vwcl" d="M12,118 L28,104 L30,92 L44,90 L46,72 L60,70 L62,52 L76,54 L78,50 L92,60 L94,58 L108,68 L110,66 L124,76 L126,74 L150,84 C190,98 240,110 290,118"/><line class="ref" x1="12" y1="50" x2="292" y2="50"/><text x="290" y="45" text-anchor="end">settled FC</text>',NIGHT+ticks(28,126,16),false,"VWC reaches FC then slips lower through the day despite shots"),
+spike:sk('<path class="vwcl" d="M12,70 L90,70 L96,26 C108,34 122,58 150,68 L290,70"/><line class="ref" x1="12" y1="70" x2="292" y2="70"/><text x="290" y="88" text-anchor="end">settled FC</text>',"",false,"a sharp peak above FC that falls back"),
+ecfall:sk('<path class="vwcl" d="'+DAYLINE+'C185,64 230,90 290,104"/><path class="ecl" d="M12,92 L150,92 C185,98 230,110 290,120"/>',NIGHT+ticks(30,150,15),true,"VWC and pore EC both falling overnight")
+};
+var SHAPE_NAMES={steep:"Steep overnight decline",drift:"Slow drift / flat dryback",flat:"Flat line (no response at all)",sag:"Sagging daytime line",spike:"Spike above FC after a shot",ecfall:"Pore EC falling during the dryback"};
+var SHW={
+steep:"High demand, possibly high VPD. First step: check the climate data and the plants.",
+drift:"Low demand, low VPD or airflow, or roots not established. First step: check climate, then the plants.",
+flat:"No response to shots or to the dark period. That is a hardware question: sensor, placement, or delivery. Verify before acting.",
+sag:"VWC slipping below settled FC while shots are running commonly points to shots not keeping up with demand, or a delivery problem such as a blocked emitter. Check delivery, then flag your lead. Any change is metered, with cultivation management guidance.",
+spike:"Temporary over-saturation during or right after a shot. It is not a new FC. Read FC after drainage stops.",
+ecfall:"The plant is taking up more than it gets. Normally pore EC rises as VWC falls. Flag it to your lead."};
+var SHOPT={steep:["steep","drift","spike","ecfall"],drift:["sag","drift","steep","flat"],flat:["spike","ecfall","flat","drift"],sag:["drift","flat","steep","sag"],spike:["spike","sag","ecfall","steep"],ecfall:["steep","ecfall","drift","flat"]};
+
+/* ---------- modules ---------- */
+var M=[
+{t:"What AROYA is and what it measures",s:"VWC, pore EC, substrate temperature",L:[
+'<h2>Three measurements, around the clock</h2><p>AROYA is the software platform we use to see what is happening inside the substrate. Substrate sensors, seated in representative plants, report:</p><table class="tbl"><tr><th>Measurement</th><th>What it means</th></tr><tr><td><span class="v">VWC</span> (%)</td><td>The share of the substrate volume that is water. At 60% VWC, 60% of the volume is water.</td></tr><tr><td><span class="e">Pore EC</span></td><td>The EC of the water held in the substrate, where the roots are. It can run much higher than feed EC, especially as the substrate dries.</td></tr><tr><td>Substrate temp</td><td>Root-zone temperature. Irrigation water temperature pulls root-zone temperature toward it.</td></tr></table>',
+'<h2>What sensors do not tell you</h2><ul><li><b>Climate</b>, unless your site connects climate sensors to AROYA. Many sites keep temperature, RH, VPD, and CO2 in a separate system.</li><li><b>Input (feed) EC and pH.</b> These come from your site’s recipe and fertigation system.</li><li><b>Runoff EC and pH.</b> These are usually measured by hand.</li><li><b>The plant.</b> Sensors can’t see posture, color, turgor, or roots. Walk the room.</li><li><b>The whole room.</b> A sensor reads roughly a liter of substrate around it, not every plant.</li></ul>'+SITE("Where your climate data lives and where you log readings and changes.")],
+Q:[
+{q:"A sensor reads 60% VWC. What does that mean?",o:["60% of the substrate’s volume is water","The substrate is 60% of the way to saturation by weight","60% of the plants in the zone are at field capacity","Pore EC is 60% of feed EC"],a:0,w:"VWC is volumetric: the share of the substrate volume that is water."},
+{q:"Feed EC is in the 3s and pore EC reads near 10. What does that tell you on its own?",o:["Feed EC must be wrong","They are different scales, so compare pore EC with your site’s guardrails, not with feed EC","The sensor is broken","Cut feed EC immediately"],a:1,w:"Input EC and pore EC measure different things. Pore EC normally runs higher, especially as the substrate dries."},
+{q:"Substrate numbers look clean, but the plants look stressed. Where do you look next?",o:["Zoom further into the AROYA substrate chart","Nowhere. The sensors say it is fine","The climate data, plus a walk of the room to look at the plants","Re-seat every sensor in the room"],a:2,w:"Substrate sensors can’t see climate or the plant, and climate may live in a separate system."}
+]},
+{t:"Reading the dashboard and charts",s:"The daily curve and curve shapes",W:["curve"],X:"shapes",L:[
+'<h2>Start with a full day and night</h2><p>AROYA plots each sensor’s VWC, pore EC, and substrate temperature over time. Use a <b>24–48 hour view</b> and put a zone’s probes side by side. If AROYA displays a calculated dryback, check whether it is in VWC points or relative %. CNDUIT recommends recording <b>relative %</b>.</p><p><b>Key relationship:</b> pore EC and VWC are coupled. A deeper dryback generally concentrates pore EC, and runoff pulls it back down.</p>'],
+Q:[
+{q:"Overnight, as the substrate dries, pore EC normally…",o:["Falls","Rises","Stays exactly flat","Matches feed EC"],a:1,w:"Normally EC goes up as VWC goes down. EC falling during a dryback is a signal worth flagging."},
+{q:"Where on the daily curve do you read the overnight dryback?",o:["At the peak of the morning ramp","At the pre-irrigation low, just before the first shot, compared with yesterday’s settled FC","Halfway through the day","At lights off"],a:1,w:"Dryback is how far the substrate dropped from settled FC to the pre-irrigation low."}
+]},
+{t:"Key terms and dryback math",s:"Flashcards, calculator, conversion practice",W:["flash","calc","practice"],L:[
+'<h2>Field capacity is a reference point</h2><p>FC is the settled VWC after drainage has substantially stopped. Treat it as a fixed reference, not a moving target. A VWC spike during or right after a shot is temporary over-saturation, not a higher FC. Runoff does not prove the whole substrate is at FC.</p>',
+'<h2>Three ways people say “dryback %”</h2><table class="tbl"><tr><th>Style</th><th>How</th><th>65% → 45%</th></tr><tr><td>VWC points</td><td>FC − pre-irrigation</td><td>“20%” (20 points)</td></tr><tr><td><b>Relative % (CNDUIT)</b></td><td>(FC − pre) ÷ FC × 100</td><td><b>30.8%</b></td></tr><tr><td>Saturation / weight %</td><td>Fullness vs fully saturated</td><td>Not convertible</td></tr></table><p>Convert any dryback you hear into relative % before comparing rooms. Don’t convert saturation-style numbers yourself. Ask your lead.</p>',
+'<h2>Pore EC guardrails</h2><p>Every site has written guardrails: a working range, an elevated range that triggers a closer look, a caution level where the lead consults cultivation management, and a danger line. Ranges differ by substrate, crop stage, and sensor model. The EC number alone never prescribes an automatic correction.</p>'+SITE("Your pore EC working range, elevated range, caution level, and danger line.")],
+Q:[
+{q:"A teammate says “we got a 20% dryback from 60% FC” and means points (dried to 40% VWC). What is that as relative dryback?",o:["20%","25%","33.3%","40%"],a:2,w:"(60 − 40) ÷ 60 × 100 = 33.3%. A points-style 20% is much bigger than it sounds."},
+{q:"Settled VWC after drainage is 65%. Right after a shot it briefly reads 72%. What is FC?",o:["72%","65%","68.5%, the average","It changes every shot"],a:1,w:"FC is the settled reading after drainage. The spike is temporary over-saturation."},
+{q:"A nutrient guide gives a dryback target as a saturation (weight-based) %. What do you do?",o:["Use it as a VWC point target","Convert it with the relative formula","Don’t convert it yourself. Ask your lead","Ignore dryback entirely"],a:2,w:"Saturation % is not the same scale as VWC, so it can’t be converted directly."},
+{q:"Why does CNDUIT recommend relative % over points?",o:["It always gives smaller numbers","It holds up across normal sensor-to-sensor scale differences","AROYA can’t display points","Points only work in coco"],a:1,w:"Example: probe A goes 68 → 51 and probe B goes 60 → 45. They differ in points (17 vs 15), but both are 25.0% relative."}
+]},
+{t:"Rockwool basics (rockwool sites)",s:"FC range, the floor, channeling",L:[
+'<p class="mute">This module applies to rockwool sites. Other substrates have their own FC range, safe floor, and shot sizing. Ask your lead.</p><h2>Rockwool numbers to know</h2><ul><li><b>Typical FC:</b> about 60–75% VWC at runoff. A reading near 100% usually means the sensor is inserted too low.</li><li><b>The floor:</b> below about 30–35% VWC, rockwool tends to form hydrophobic dry pockets and won’t re-wet evenly. Many growers treat about <b>40%</b> as the practical bottom. If pre-irrigation VWC is heading toward about 40%, <b>raise it with your lead</b>.</li><li><b>Shot size:</b> rockwool can only take so much water per shot before it channels.</li></ul>',
+'<h2>Channeling and late-flower FC loss</h2><p><b>Channeling test:</b> runoff while VWC is still well below the known FC means water is going on too fast. Report it. Shot or interval changes are made deliberately with your lead, within your site’s minimum interval.</p><p><b>Losing FC late:</b> over-drying rockwool can make it lose field capacity, and blocks that have lost FC give more erratic pore EC. Don’t chase a late-flower overnight floor with ever more water: that creates runoff and saturation without restoring the floor. As uptake falls in ripening, manage moisture so the block keeps cycling.</p><div class="ex"><b>Example:</b> FC 65% with a 40% practical floor leaves (65 − 40) ÷ 65 × 100 = <b>38.5% relative</b> of room. Arithmetic for awareness, not a target.</div>'],
+Q:[
+{q:"During the morning ramp you see runoff while VWC is still well below the known FC. What is going on?",o:["The block is at FC early. Great","Channeling: water is going on too fast. Report it and adjust only with your lead","The sensor needs replacing","Pore EC is too low"],a:1,w:"Runoff before FC is the classic channeling sign. Changes are deliberate and stay within your site’s minimum interval."},
+{q:"Pre-irrigation VWC in a rockwool zone is trending toward 40%. What do you do?",o:["Nothing. Drier is always more generative","Add several extra shots on your own","Raise it with your lead","Raise feed EC"],a:2,w:"Below roughly 35–40%, rockwool risks hydrophobic pockets and lost FC. Bring it to your lead."},
+{q:"Late flower: the overnight low keeps getting lower. Someone suggests pushing more water to restore the old floor. Best response?",o:["Agree. Double the shots","Don’t chase the floor with volume. Talk with your lead about managing moisture","Flush with plain water","Stop irrigating"],a:1,w:"Forcing water late creates runoff and saturation without restoring the floor."}
+]},
+{t:"Sensors: placement, how many, bad readings",s:"Trust, but verify the hardware",L:[
+'<h2>Placement good practice</h2><ul><li>Pick plants that <b>represent the average</b> of the zone, not the best, the worst, or a convenient edge.</li><li>Where possible, a zone’s probes go in the <b>same cultivar</b> so the curves can confirm each other.</li><li>Avoid drains, low points, edges, wet spots, air gaps, channels, and emitters discharging onto the probe.</li><li>Seat probes fully with good contact. Keep a drip loop with no cable tension. Log each location and zone mapping.</li></ul><p>Use at least <b>two sensors per irrigation zone</b>. More is better across tiers or cultivars.</p>'+SITE("Sensors per zone and your placement template."),
+'<h2>What bad readings look like</h2><table class="tbl"><tr><th>Symptom</th><th>Possible cause</th></tr><tr><td>Very high VWC (near 100%)</td><td>Sensor too low or in pooled water</td></tr><tr><td>Sudden step with no irrigation</td><td>Plant, substrate, or probe moved or bumped</td></tr><tr><td>Stuck well below the other probe’s FC</td><td>Placement or delivery (blocked or kinked emitter)</td></tr><tr><td>Huge instant reaction to every shot</td><td>Emitter discharging onto the probe, or channeling</td></tr><tr><td>Probes disagree sharply</td><td>Investigate before treating it as a crop response</td></tr></table><p><b>Rule:</b> don’t steer from a single suspect probe. Corroborated data is the gate for any meaningful decision.</p>'],
+Q:[
+{q:"Which plant is the best choice for a substrate probe?",o:["The healthiest plant on the bench","The plant next to the drain, for easy access","A plant that represents the average of the zone, away from edges, drains, and emitters","The smallest plant, to catch problems early"],a:2,w:"Sensors should represent the zone, not the best plant, the worst plant, or a convenient spot."},
+{q:"VWC jumps 8 points at 3 am with no irrigation running. Most likely cause?",o:["The plants released water","The plant, substrate, or probe was moved or bumped","Night VPD","A pore EC spike"],a:1,w:"A step change without irrigation points to a physical disturbance."},
+{q:"Zone probe A has a normal dryback. Probe B barely moves. The plants look uniform. Next step?",o:["Average the two and steer on that","Steer from probe B","Investigate probe B’s placement, channeling, delivery, and condition before acting","Steer from probe A only, from now on"],a:2,w:"Sharp disagreement is a hardware question before it is a plant question."}
+]},
+{t:"How climate affects dryback (VPD)",s:"Check climate before blaming irrigation",L:[
+'<h2>The plant drinks according to the climate</h2><ul><li><b>High VPD</b> speeds water use and concentrates pore EC. <b>Low VPD</b> slows dry-down.</li><li>When drybacks stall, climate is often the limiting factor: with low VPD or poor airflow the plant won’t drink much. Very high RH pushes VPD toward zero.</li><li>High <b>night</b> VPD can cause unexpectedly deep overnight drybacks. Overnight HVAC or dehumidification problems are clearly visible in the next morning’s dryback.</li><li>Room VPD isn’t leaf VPD, and one climate sensor may not represent the whole room.</li><li>More runoff means more water in the room for the HVAC to handle.</li></ul><p><b>What to check:</b> temperature, RH, and VPD overnight and during lights-on, alarms or equipment faults, big swings around setpoints, and zone-specific climate stories (a hot tier, a dead fan).</p>'+SITE("Your climate system, RH, VPD and CO2 targets, and the climate/HVAC contact.")],
+Q:[
+{q:"Drybacks have stalled for two nights and nothing changed in irrigation. First check?",o:["Raise feed EC","The climate data: VPD, airflow, equipment faults","Replace the sensors","Add shots"],a:1,w:"With low VPD or poor airflow the plant won’t drink much. Check climate before blaming irrigation or sensors."},
+{q:"This morning’s overnight dryback is unexpectedly deep across the room. What fits best?",o:["High night VPD or an overnight HVAC or dehumidification issue","The sensors are inserted too low","Pore EC is too low","Channeling"],a:0,w:"High night VPD and overnight equipment problems are clearly visible in the next morning’s dryback."},
+{q:"Why can increasing runoff affect the room climate?",o:["It can’t","There is more water in the room for the HVAC and dehumidification to handle","Runoff lowers light intensity","It changes the sensor calibration"],a:1,w:"Irrigation and climate are linked in both directions."}
+]},
+{t:"CNDUIT Standard Recipe",s:"Day-by-day runtime, interval, and temperatures",W:["recipe"],L:[
+'<h2>Feed window</h2><p><b>First feed 30 minutes after lights on. Last feed 30 minutes before lights off.</b> Shots run on the recipe interval for the whole window.</p><h2>How the recipe builds the ramp</h2><ul><li><b>Longer shots:</b> runtime grows from 20 s to 150 s (165 s for most strains), so each shot delivers more water as the plants grow and drink more.</li><li><b>Widening intervals:</b> the gap between shots grows from 25 to 60 minutes. There are fewer, larger shots each day, and the substrate dries a bit more between them, so pressure builds gradually.</li><li><b>Overnight dryback from the dark period:</b> feeding stops 30 minutes before lights off and restarts 30 minutes after lights on, so the dark period becomes one clean overnight dryback that naturally deepens as the run goes on.</li></ul><p><b>+15 s note:</b> from the 50 s step (Day 12) onward, most strains run 15 seconds longer per shot. Each step holds until the next listed day.</p><p><b>Temperatures</b> step down through flower and the day/night gap widens. Temperature changes VPD, so expect dryback to respond when temperatures step. Confirm setpoints in the climate system.</p>'+SITE("Cultivar exceptions to the +15 s rule, your minimum interval, scheduled events and resets, and your feed EC policy.")],
+Q:[
+{q:"Day 20, most strains. What is the shot runtime and interval?",o:["70 s every 35 min","85 s every 35 min","80 s every 35 min","95 s every 40 min"],a:1,w:"Day 20 is on the D19 step: 70 s base, 85 s for most strains (+15 s), every 35 min."},
+{q:"Day 5, most strains. What runtime?",o:["30 s (the +15 s rule hasn’t started yet)","45 s","35 s","50 s"],a:0,w:"Day 5 is on the D4 step: 30 s every 25 min. The +15 s rule starts at the 50 s step on Day 12."},
+{q:"Why does the overnight dryback tend to deepen as the run goes on?",o:["Feed EC goes up","Bigger plants drink more, shots get longer and intervals wider, and the dark period gives one clean dryback","The sensors drift","Temperatures rise"],a:1,w:"The recipe builds the ramp with longer shots, wider intervals, and the dark-period dryback."},
+{q:"On Day 22 the day/night temperatures step from 79/72 to 78/68 °F. What should you expect and do?",o:["Nothing changes","Expect dryback to respond as VPD changes, and confirm in the climate system that the room is hitting the setpoints","Raise feed EC to compensate","Stop irrigation overnight"],a:1,w:"Temperature changes VPD, and VPD changes how fast plants drink."}
+]},
+{t:"A day in the life",s:"Daily review routine and scenario drills",W:["checklist"],L:[
+'<h2>Know today’s recipe step</h2><p>Before you review data, know what the recipe asks for today: runtime, interval, the feed window, and any scheduled event. You can’t judge a curve without knowing the plan. Account for any manual or extra volume when reading the next 1–2 days. Judge a reset by the <b>sensor response</b> reaching the target, not by volume.</p>'+SITE("Scheduled events and resets: days, targets, and how they are confirmed."),
+'<h2>Who does what</h2><ul><li><b>Technicians:</b> run the schedule, verify delivery, record observations, and report abnormal readings or faults.</li><li><b>Leads:</b> review daily data, tune within the site strategy, and consult cultivation management at EC caution levels or before significant changes.</li><li><b>Cultivation management:</b> owns significant recipe, guardrail, or strategy changes.</li><li>Immediate equipment or plant-protection fixes are <b>never delayed by hierarchy</b>. Fix it, log it, communicate.</li></ul>'+SITE("Escalation contacts: shift lead, cultivation management, irrigation equipment, climate/HVAC, and after hours.")],
+Q:[
+{tag:"Scenario drill",d:"Morning review, Zone A. Probe 1: <span class=v>28%</span> relative dryback. Probe 2: <span class=v>9%</span>. Plants look uniform and climate overnight was normal.",q:"What do you do next?",o:["Steer the zone from probe 2 and cut shots","Average them (18.5%) and carry on","Don’t steer yet. Check probe 2’s placement, emitter, and seating, compare block weight, and log what you find","Raise feed EC on Zone A"],a:2,w:"Never steer from a single suspect probe. Verify the hardware first, then log it.",l:"Corroborate, then decide."},
+{tag:"Scenario drill",d:"Pore EC has climbed for three days and is now approaching your site’s caution level. Both probes agree, the plants look healthy, and climate is on target.",q:"What do you do next?",o:["Cut feed EC yourself to bring it down","Flag it to your lead with the trend and what you checked. The lead consults cultivation management before adding more pressure","Flush the zone with plain water","Ignore it. The plants look fine"],a:1,w:"At caution levels the lead consults cultivation management. Don’t change feed EC on your own.",l:"Escalate with numbers, not with a knob."},
+{tag:"Scenario drill",d:"For two days, one zone’s morning ramp has not reached FC. Emitters are flowing, both probes agree, and climate is normal.",q:"What do you do next?",o:["Double the runtime today","Raise it with your lead. Make a metered increase with cultivation management guidance, change one thing, then log it and watch the response","Add a night irrigation","Leave it. FC doesn’t matter"],a:1,w:"Small, planned steps with oversight are easy to read and avoid over-correcting.",l:"One metered change, documented."},
+{tag:"Scenario drill",d:"At 2 pm you find a drip line has popped off. A row of plants is dry and starting to droop.",q:"What do you do next?",o:["Wait for your lead to approve a fix","Reconnect the line and water the affected plants now, then log it and tell your lead","Log it and check tomorrow","Change the zone’s recipe"],a:1,w:"Equipment and plant-protection fixes are never delayed by hierarchy. Fix, log, communicate.",l:"Protect the crop first."},
+{tag:"Scenario drill",d:"A teammate suggests bumping feed EC on one tank to push EC stacking in a room.",q:"What do you say?",o:["Sure, small changes are fine","Feed EC is part of the recipe. Don’t change it on your own: follow your site’s feed EC policy and talk to your lead","Do it, but only overnight","Change it and see what happens"],a:1,w:"Feed strength affects every plant on the system and is set by the recipe.",l:"Recipe changes go through the right people."},
+{tag:"Scenario drill",d:"After a scheduled reset, someone says it worked because a lot of volume went on. The sensors have not reached the reset target yet.",q:"Was the reset successful?",o:["Yes, the volume proves it","Not yet. Judge a reset by the sensor response reaching the target. Volume is only evidence of what it took","Yes, if there was runoff","There is no way to know"],a:1,w:"Volume is evidence, not the endpoint.",l:"Confirm with the sensor."}
+]},
+{t:"Good-practice notes",s:"CNDUIT-wide habits",L:[
+'<h2>Habits that keep steering safe</h2><table class="tbl"><tr><th>Practice</th><th>Why</th></tr><tr><td>Express dryback as relative %</td><td>It holds up across sensors and ends “% of what?”</td></tr><tr><td>Corroborate before you steer</td><td>One suspect probe can send a room the wrong way</td></tr><tr><td>Change one variable at a time</td><td>Otherwise you can’t tell what caused the response</td></tr><tr><td>Metered changes with cultivation management guidance</td><td>Avoids over-correcting, and results are easy to read</td></tr><tr><td>Gate aggressive steering on the most stressed zone or tier</td><td>The room average hides the zone most at risk</td></tr><tr><td>Don’t change feed EC on your own</td><td>It affects every plant on the system</td></tr><tr><td>Confirm resets by sensor response</td><td>The root-zone result is the goal</td></tr><tr><td>Log it and communicate it</td><td>The next shift needs to know what changed and why</td></tr></table>'],
+Q:[
+{q:"You adjust runtime and the feed window on the same day, and the dryback changes. What is the problem?",o:["None","You can’t tell which change caused the response","Runtime changes don’t affect dryback","The feed window is not a lever"],a:1,w:"Change one variable at a time."},
+{q:"Two tiers in a room: the top tier runs hotter with higher pore EC. What do you gate aggressive steering on?",o:["The room average","The cooler tier","The most stressed zone or tier, here the top tier","Whichever probe was installed first"],a:2,w:"The average hides the zone most at risk."}
+]},
+{t:"Top 10 beginner mistakes",s:"And how to avoid them",L:[
+'<h2>Top 10 beginner mistakes</h2><ol><li><b>Mixing up dryback units.</b> A points-style “20%” from 60% FC is 33% relative.</li><li><b>Changing feed EC without authorization.</b></li><li><b>Steering from one probe.</b></li><li><b>Calling a post-shot spike “FC”.</b> A flat line above FC after heavy runoff means the substrate is still draining.</li><li><b>Over-drying the substrate.</b> Know your substrate’s safe floor.</li><li><b>Ignoring climate.</b></li><li><b>Reacting to a number alone.</b> Look at the trend and the plants, and escalate at your site’s caution level.</li><li><b>Going off-recipe on timing.</b> No tighter intervals or unplanned shots.</li><li><b>Chasing a late-flower overnight floor with more water.</b></li><li><b>Not logging it.</b></li></ol>'],
+Q:[
+{q:"After a heavy-runoff event, VWC sits flat above the usual FC for hours. What is it?",o:["A new, higher FC","The substrate still draining. Read FC after drainage stops","A broken sensor","Channeling"],a:1,w:"FC is the settled reading after drainage."},
+{q:"Which of these is NOT a beginner mistake?",o:["Steering from one suspect probe","Logging every change with why, what, the expected result, and the actual result","Treating a points dryback as relative","Chasing a late-flower floor with more water"],a:1,w:"Logging and communicating is exactly what good practice looks like."},
+{q:"Pore EC is rising but still inside your site’s working range, and the plants look good. What is the right read?",o:["Correct it immediately","Rising EC inside the working range is normal. Watch the trend and the plants","Raise feed EC","Flush"],a:1,w:"Don’t react to a number alone."}
+]}
+];
+M[1].Q=M[1].Q.concat(["steep","drift","flat","sag","spike","ecfall"].map(function(k){var o=SHOPT[k];return {tag:"Spot the curve shape",svg:SHAPES[k],q:"Which curve shape is this?",o:o.map(function(x){return SHAPE_NAMES[x];}),a:o.indexOf(k),w:SHW[k]};}));
+M.forEach(function(m,i){m.Q.forEach(function(q,k){q.id="m"+(i+1)+"q"+(k+1);});});
+var ALLQ=[];M.forEach(function(m){ALLQ=ALLQ.concat(m.Q);});
+var QBY={};ALLQ.forEach(function(q){QBY[q.id]=q;});
+
+/* ---------- helpers ---------- */
+var app=null;
+function isAns(q){return S.ans.hasOwnProperty(q.id);}
+function answered(){return ALLQ.filter(isAns).length;}
+function correct(){return ALLQ.filter(function(q){return S.ans[q.id]===q.a;}).length;}
+function modDone(m){return m.Q.every(isAns);}
+function prog(){var p=Math.round(answered()/ALLQ.length*100);document.getElementById("pfill").style.width=p+"%";var b=document.getElementById("pbar");b.setAttribute("aria-valuenow",String(p));b.setAttribute("aria-valuetext",p+"% complete");}
+function esc(s){return String(s).replace(/[&<>"']/g,function(c){return {"&":"&","<":"<",">":">",'"':""","'":"&#39;"}[c];});}
+function go(h){if(location.hash===h)route();else location.hash=h;}
+
+/* ---------- views ---------- */
+function home(){
+ var h='<h1>AROYA for Beginners</h1><p>A hands-on course for CNDUIT cultivation teams: read the substrate data, do the dryback math, follow the CNDUIT Standard Recipe, and practice what to do next.</p>';
+ h+='<div class="card"><div class="stat"><div><b>'+answered()+' / '+ALLQ.length+'</b><span>questions answered</span></div><div><b>'+M.filter(modDone).length+' / '+M.length+'</b><span>modules complete</span></div></div><p class="mute" style="margin:0">Progress saves on this device. Site-specific numbers (EC guardrails, resets, contacts) are not in this course: ask your lead or see your site’s standard.</p></div><h2>Modules</h2>';
+ M.forEach(function(m,i){var n=m.Q.filter(isAns).length,d=modDone(m);
+  h+='<button class="mod'+(d?' done':'')+'" type="button" data-nav="#m'+(i+1)+'"><span class="n">'+(i+1)+'</span><span class="t"><b>'+m.t+'</b><span>'+m.s+'</span></span><span class="st">'+(d?'Done ✓':n+' / '+m.Q.length)+'</span></button>';});
+ h+='<h2 style="margin-top:18px">Tools</h2><div class="row"><button class="sec" type="button" data-nav="#m2">Daily curve explorer</button><button class="sec" type="button" data-nav="#m3">Dryback calculator</button><button class="sec" type="button" data-nav="#m7">Recipe explorer</button><button class="sec" type="button" data-nav="#m3">Flashcards</button></div>';
+ h+='<button class="go" type="button" data-nav="#cert" style="margin-top:16px">Certificate</button><div class="row" style="margin-top:10px"><button class="sec" id="resetBtn" type="button">Reset my progress</button></div><p class="src">CNDUIT · AROYA for Beginners (Rev 2), interactive edition.</p>';
+ return h;}
+
+function qHTML(q){
+ var h='<div class="card" id="'+q.id+'"><div class="skill">'+(q.tag||"Knowledge check")+'</div>'+(q.d?'<div class="data">'+q.d+'</div>':'')+(q.svg||'')+'<h3 style="margin-top:8px">'+q.q+'</h3><div role="group" aria-label="Answer options">';
+ q.o.forEach(function(t,k){h+='<button class="opt" type="button" data-q="'+q.id+'" data-k="'+k+'">'+t+'</button>';});
+ return h+'</div><div class="fb" aria-live="polite"></div></div>';}
+
+function applyAns(q){var c=document.getElementById(q.id);if(!c||!isAns(q))return;var k=S.ans[q.id];
+ each(c.querySelectorAll(".opt"),function(b){b.disabled=true;var n=+b.getAttribute("data-k");if(n===q.a)b.classList.add("right");else if(n===k)b.classList.add("wrong");});
+ c.querySelector(".fb").innerHTML='<div class="why" tabindex="-1"><p><b>'+(k===q.a?"Right.":"Not quite.")+'</b> '+q.w+'</p>'+(q.l?'<p class="lm">Next move: '+q.l+'</p>':'')+'</div>';}
+
+function module(i){
+ var m=M[i],h='<div class="skill">Module '+(i+1)+' of '+M.length+'</div><h1>'+m.t+'</h1>';
+ m.L.forEach(function(x){h+='<div class="card">'+x+'</div>';});
+ each(m.W||[],function(w){try{h+=WIDGET[w]();}catch(e){h+=errCard('This tool could not load ('+w+')',e);}});
+ if(m.X==="shapes"){
+  h+='<h2>Knowledge check</h2>'+m.Q.filter(function(q){return !q.svg;}).map(qHTML).join('');
+  h+='<h2>Spot the curve shape</h2><p class="mute">Each sketch is labeled Example. Pick the shape, then read what it usually means and the first step.</p>'+m.Q.filter(function(q){return q.svg;}).map(qHTML).join('');
+ } else h+='<h2>'+(i===7?'Scenario drills: what do you do next?':'Knowledge check')+'</h2>'+m.Q.map(qHTML).join('');
+ h+='<div class="row">'+(i>0?'<button class="sec" type="button" data-nav="#m'+i+'">← Previous</button>':'')+'<button class="sec" type="button" data-nav="#home">All modules</button></div>';
+ h+=i<M.length-1?'<button class="go" type="button" data-nav="#m'+(i+2)+'">Next: '+M[i+1].t+'</button>':'<button class="go" type="button" data-nav="#cert">Go to certificate</button>';
+ return h;}
+
+/* ---------- widgets ---------- */
+var WIDGET={
+curve:function(){
+ var X=function(t){return 46+t*(546/24);},Y=function(v){return 250-(v-35)*(220/40);},YE=function(e){return 250-e*200;},t,j;
+ var pts=[[0,47.2],[0.5,46],[0.52,50],[1,49.6],[1.02,53.5],[1.5,53.1],[1.52,57],[2,56.6],[2.02,60.6],[2.5,60.2],[2.52,64],[3,63.6],[3.02,65.4]];
+ for(t=3.02;t<11.4;t+=0.5){pts.push([t+0.48,64.5]);pts.push([t+0.5,65.4]);}
+ for(t=11.75;t<=24.001;t+=0.25){pts.push([t,65.4-19.2*Math.pow((t-11.52)/12.48,0.85)]);}
+ var d="";for(j=0;j<pts.length;j++)d+=(j?" L":"M")+X(pts[j][0]).toFixed(1)+","+Y(pts[j][1]).toFixed(1);
+ var de="";j=0;for(t=0;t<=24.001;t+=0.25){var e;if(t<0.5)e=0.62;else if(t<3)e=0.62-0.3*((t-0.5)/2.5);else if(t<11.5)e=0.32;else e=0.32+0.3*Math.pow((t-11.5)/12.5,1.1);de+=(j++?" L":"M")+X(t).toFixed(1)+","+YE(e).toFixed(1);}
+ var reg=[["pre",0,0.55],["ramp",0.55,3.05],["day",3.05,11.5],["night",11.5,24]];
+ var s='<svg class="cv" viewBox="0 0 600 296" role="group" aria-label="Example daily VWC and pore EC curve. Tab to a phase or use the phase buttons below.">';
+ s+='<rect class="nightb" x="'+X(12)+'" y="25" width="'+(X(24)-X(12))+'" height="225"/>';
+ s+='<line class="axis" x1="46" y1="250" x2="592" y2="250"/><line class="axis" x1="46" y1="25" x2="46" y2="250"/>';
+ [40,50,60,70].forEach(function(v){s+='<line class="axis" x1="46" y1="'+Y(v)+'" x2="592" y2="'+Y(v)+'" style="opacity:.5"/><text x="40" y="'+(Y(v)+4)+'" text-anchor="end">'+v+'%</text>';});
+ s+='<line class="ref" x1="46" y1="'+Y(65.4)+'" x2="592" y2="'+Y(65.4)+'"/><text x="590" y="'+(Y(65.4)-6)+'" text-anchor="end">settled FC</text>';
+ s+='<text x="'+X(0)+'" y="268">Lights on</text><text x="'+X(12)+'" y="268" text-anchor="middle">Lights off</text><text x="592" y="268" text-anchor="end">Next lights on</text><text x="'+X(16)+'" y="42">dark period</text>';
+ s+='<text x="8" y="16" class="exl">Example · illustrative values</text><text x="592" y="16" text-anchor="end">blue = VWC · dashed = pore EC (trend only)</text>';
+ s+='<path class="ecl" d="'+de+'"/><path class="vwcl" d="'+d+'"/>';
+ s+='<circle class="dot" cx="'+X(0.5)+'" cy="'+Y(46)+'" r="5"/><circle class="dot" cx="'+X(24)+'" cy="'+Y(46.2)+'" r="5"/>';
+ reg.forEach(function(r){s+='<rect class="ph" data-ph="'+r[0]+'" tabindex="0" role="button" aria-label="'+PHASES[r[0]].t+'" x="'+X(r[1])+'" y="25" width="'+(X(r[2])-X(r[1]))+'" height="225"/>';});
+ s+='<rect class="ph" data-ph="pre" aria-hidden="true" x="'+(X(24)-14)+'" y="25" width="14" height="225"/>';
+ s+='<text x="'+X(1.8)+'" y="288" text-anchor="middle" class="lbl">ramp</text><text x="'+X(7.2)+'" y="288" text-anchor="middle" class="lbl">daytime</text><text x="'+X(18)+'" y="288" text-anchor="middle" class="lbl">overnight dryback</text></svg>';
+ var c='<div class="card"><h2>Daily curve explorer</h2><p class="mute">Tap or hover a part of the curve, or use the buttons, to see what VWC and pore EC are doing. The dots mark the pre-irrigation lows.</p>'+s+'<div class="chips" role="group" aria-label="Curve phases">';
+ reg.forEach(function(r){c+='<button class="chip" type="button" data-phb="'+r[0]+'" aria-pressed="false">'+PHASES[r[0]].t+'</button>';});
+ return c+'</div><div class="panel" id="phPanel" aria-live="polite"><p class="mute">Pick a phase to begin.</p></div></div>';},
+flash:function(){var h='<div class="card"><h2>Glossary flashcards</h2><p class="mute">Tap a card to reveal the meaning. Tap again to hide it.</p><div class="flashes">';
+ GLOSS.forEach(function(g,i){h+='<button class="flash" type="button" aria-expanded="false" data-fl="'+i+'"><div class="ft">'+g[0]+'</div><div class="fh">Tap to reveal</div><div class="fb">'+g[1]+'</div></button>';});
+ return h+'</div></div>';},
+calc:function(){return '<div class="card"><h2>Relative dryback calculator</h2><p class="mute">Relative dryback % = (FC − pre-irrigation VWC) ÷ FC × 100</p><div class="row"><div><label class="f" for="fcIn">FC VWC (%)</label><input type="number" id="fcIn" inputmode="decimal" min="1" max="100" step="0.1" value="65"></div><div><label class="f" for="preIn">Pre-irrigation VWC (%)</label><input type="number" id="preIn" inputmode="decimal" min="0" max="100" step="0.1" value="45"></div></div><div id="calcOut" aria-live="polite" style="margin-top:12px"></div></div>';},
+practice:function(){return '<div class="card"><h2>Practice: convert points to relative</h2><p class="mute">Random examples. Answer to one decimal place (within ±0.5 counts).</p><div id="prQ" class="data"></div><label class="f" for="prIn">Relative dryback (%)</label><input type="number" id="prIn" inputmode="decimal" step="0.1"><div class="row" style="margin-top:10px"><button class="go" type="button" id="prCheck" style="margin-top:0">Check</button><button class="sec" type="button" id="prNew">New numbers</button></div><div id="prFb" aria-live="polite" style="margin-top:10px"></div><p class="mute" id="prScore"></p></div>';},
+recipe:function(){return '<div class="card"><h2>CNDUIT Standard Recipe explorer</h2><p class="mute">Slide to any day of flower (0–57). Each step holds until the next listed day.</p><label class="f" for="daySl">Day of flower: <span id="dayLb">0</span></label><input type="range" id="daySl" min="0" max="57" step="1" value="0"><div class="row"><button class="sec" type="button" id="dMinus" aria-label="Previous day">− Day</button><button class="sec" type="button" id="dPlus" aria-label="Next day">+ Day</button></div><div id="recOut" aria-live="polite" style="margin-top:12px"></div><details><summary>Full recipe tables</summary>'+fullTables()+'</details></div>';},
+checklist:function(){var items=["<b>Climate:</b> overnight temp, RH, VPD, and any alarms.","<b>Compare the probes</b> for each zone. Do the curves agree in shape and timing?","<b>Overnight dryback:</b> yesterday’s settled FC vs this morning’s pre-irrigation VWC, as relative %. Look at the shape and dry-down rate too.","<b>Pore EC</b> level and trend against your site’s guardrails.","<b>Delivery and ramp:</b> did each shot register? Did VWC reach FC? Any runoff before FC?","<b>Spot checks</b> at the same times every day, after the ramp reaches FC and before lights off.","<b>Runoff:</b> volume, EC, and pH, collected consistently and soon after feeding.","<b>Substrate temperature</b>, especially in warm rooms, upper tiers, and low-airflow zones.","<b>The plants:</b> posture, color, turgor, tips. When plants and numbers disagree, verify the sensor and delivery first.","<b>Log it in your site’s system</b> and communicate significant changes: why, what, the expected result, and the actual result."];
+ var h='<div class="card"><h2>The daily checklist</h2><p class="mute">Tick through it during your next review. Ticks save on this device.</p>';
+ items.forEach(function(t,i){h+='<label class="chk"><input type="checkbox" data-ck="c'+i+'"'+(S.checks["c"+i]?" checked":"")+'><span>'+(i+1)+'. '+t+'</span></label>';});
+ return h+'<button class="sec" type="button" id="ckClear" style="margin-top:10px;width:100%">Clear ticks</button></div>';}
+};
+function fullTables(){var h='<table class="tbl"><tr><th>Day</th><th>Runtime</th><th>Most strains (+15 s from D12)</th><th>Interval</th></tr>';
+ RECIPE.forEach(function(r){h+='<tr><td>D'+r[0]+'</td><td>'+r[1]+' s</td><td>'+(r[2]?r[2]+' s':'–')+'</td><td>'+r[3]+' min</td></tr>';});
+ h+='</table><table class="tbl"><tr><th>Day</th><th>Day °F</th><th>Night °F</th></tr>';
+ TEMPS.forEach(function(r){h+='<tr><td>D'+r[0]+'</td><td>'+r[1]+'</td><td>'+r[2]+'</td></tr>';});
+ return h+'</table>';}
+
+function recUpdate(d){
+ var r=stepFor(RECIPE,d),tp=stepFor(TEMPS,d);
+ document.getElementById("dayLb").textContent=d;
+ var sl=document.getElementById("daySl");sl.value=d;sl.setAttribute("aria-valuetext","Day "+d);
+ var h='<div class="stat"><div><b>'+r[1]+' s</b><span>Runtime (D'+r[0]+' step)</span></div><div><b>'+(r[2]?r[2]+' s':'–')+'</b><span>Most strains'+(r[2]?' (+15 s)':' (+15 s starts D12)')+'</span></div><div><b>'+r[3]+' min</b><span>Interval</span></div><div><b>'+tp[1]+' / '+tp[2]+' °F</b><span>Day / night temp (D'+tp[0]+' step), gap '+(tp[1]-tp[2])+' °F</span></div></div>';
+ h+='<div class="note"><b>Feed window:</b> first feed 30 min after lights on, last feed 30 min before lights off.</div>';
+ var n;
+ if(d<12)n="Short shots and tighter intervals. Before Day 12 every strain runs the base runtime. Expect the dryback to build gradually as the plants grow into the substrate.";
+ else if(d<42)n="Most strains now run +15 s per shot. Shots keep getting longer and intervals wider: fewer, larger shots each day, with the dark period giving one clean overnight dryback that deepens as the plants grow.";
+ else n="Final irrigation step: 150 s (165 s for most strains) every 60 min. It holds through the end of the table while temperatures keep stepping down toward 70/65 °F.";
+ h+='<p>'+n+'</p>';
+ if(d>0&&RECIPE.some(function(x){return x[0]===d;}))h+='<div class="flag"><b>Irrigation step changes today.</b> Watch tomorrow morning’s dryback and log what you see.</div>';
+ if(d>0&&TEMPS.some(function(x){return x[0]===d;}))h+='<div class="flag"><b>Temperature setpoints step today.</b> Confirm in the climate system, and expect dryback to respond as VPD changes.</div>';
+ h+=SITE("Scheduled top feeds, resets, and their targets for this point in the run.");
+ document.getElementById("recOut").innerHTML=h;}
+
+function calcUpdate(){var fc=parseFloat(document.getElementById("fcIn").value),pre=parseFloat(document.getElementById("preIn").value),o=document.getElementById("calcOut");
+ if(isNaN(fc)||isNaN(pre)){o.innerHTML='<p class="mute">Enter both values.</p>';return;}
+ if(fc<=0||fc>100||pre<0||pre>100){o.innerHTML='<div class="flag">Use VWC values between 0 and 100%, with FC above 0.</div>';return;}
+ if(pre>fc){o.innerHTML='<div class="flag">Pre-irrigation VWC is above FC. Re-check FC: use the settled reading after drainage, not a post-shot spike.</div>';return;}
+ var pts=fc-pre,rel=pts/fc*100;
+ o.innerHTML='<div class="out">'+rel.toFixed(1)+'%</div><p>relative dryback, from <b>'+pts.toFixed(1)+' VWC points</b></p><p class="mute">('+fc+' − '+pre+') ÷ '+fc+' × 100 = '+rel.toFixed(1)+'%'+(pre<40?'. On rockwool sites, a pre-irrigation VWC below about 40% is one to raise with your lead.':'')+'</p>';}
+
+var PR=null;
+function prNew(){var fc=55+Math.floor(Math.random()*21),pts=8+Math.floor(Math.random()*23);if(fc-pts<20)pts=fc-20;PR={fc:fc,pts:pts,pre:fc-pts};
+ var forms=['FC is <span class="v">'+fc+'%</span> and this morning’s pre-irrigation VWC is <span class="v">'+PR.pre+'%</span>.','A teammate says “we got a <b>'+pts+'%</b> dryback from <span class="v">'+fc+'%</span> FC” and means points.','The zone dropped <b>'+pts+' VWC points</b> overnight from a settled FC of <span class="v">'+fc+'%</span>.'];
+ document.getElementById("prQ").innerHTML='<b>Example.</b> '+forms[Math.floor(Math.random()*forms.length)]+' What is the relative dryback?';
+ document.getElementById("prIn").value="";document.getElementById("prFb").innerHTML="";prScore();}
+function prScore(){document.getElementById("prScore").textContent=S.practice.tries?("Practice so far: "+S.practice.right+" right out of "+S.practice.tries+"."):"";}
+function prCheck(){var v=parseFloat(document.getElementById("prIn").value),fb=document.getElementById("prFb");if(!PR)return;
+ if(isNaN(v)){fb.innerHTML='<div class="flag">Enter a number first.</div>';return;}
+ var ans=PR.pts/PR.fc*100,ok=Math.abs(v-ans)<=0.5;S.practice.tries++;if(ok)S.practice.right++;save();
+ fb.innerHTML='<div class="'+(ok?'note':'flag')+'"><b>'+(ok?'Right.':'Not quite.')+'</b> Pre-irrigation VWC = '+PR.fc+' − '+PR.pts+' = '+PR.pre+'%. Relative = '+PR.pts+' ÷ '+PR.fc+' × 100 = <b>'+ans.toFixed(1)+'%</b>.</div>';prScore();}
+
+function cert(){
+ var a=answered(),c=correct(),tot=ALLQ.length,pct=Math.round(c/tot*100);
+ var h='<h1 class="noprint">Certificate</h1>';
+ if(a<tot){var left=M.map(function(m,i){return modDone(m)?'':'<button class="mod" type="button" data-nav="#m'+(i+1)+'"><span class="n">'+(i+1)+'</span><span class="t"><b>'+m.t+'</b></span><span class="st">'+m.Q.filter(function(q){return !isAns(q);}).length+' left</span></button>';}).join('');
+  return h+'<div class="card"><p>Answer every question to unlock your certificate. You have answered <b>'+a+' of '+tot+'</b>.</p></div>'+left+'<button class="sec" type="button" data-nav="#home" style="width:100%;margin-top:6px">All modules</button>';}
+ var msg=pct>=85?"Ready to read the room":pct>=65?"Solid start. Review the modules you missed, then shadow a lead on a daily review":"Keep building. Retake the modules you missed and walk the rooms with the data";
+ h+='<div class="card noprint"><div class="big">'+c+' / '+tot+'</div><p><b>'+pct+'%: '+msg+'</b></p>';
+ M.forEach(function(m,i){var r=m.Q.filter(function(q){return S.ans[q.id]===q.a;}).length;h+='<div class="res"><span>'+(i+1)+'. '+m.t+'</span><span>'+r+' / '+m.Q.length+'</span></div>';});
+ h+='<label class="f" for="nmIn" style="margin-top:14px">Your name for the certificate</label><input type="text" id="nmIn" autocomplete="name" maxlength="80" value="'+esc(S.name)+'"></div>';
+ var dt=new Date().toLocaleDateString(undefined,{year:"numeric",month:"long",day:"numeric"});
+ h+='<div class="cert" id="certBox"><div class="brand" style="font-size:18px">CNDUIT</div><p class="mute" style="margin:6px 0 14px">Certificate of completion</p><h2 style="font-size:26px">AROYA for Beginners</h2><p class="mute" style="margin-bottom:4px">This certifies that</p><div class="nm" id="certName">'+(S.name?esc(S.name):'Your name')+'</div><p>completed all '+M.length+' modules with a score of <b>'+c+' / '+tot+' ('+pct+'%)</b>.</p><p class="mute">'+dt+'</p></div>';
+ h+='<div class="noprint"><button class="go" type="button" id="printBtn">Print certificate</button><div class="row" style="margin-top:10px"><button class="sec" type="button" data-nav="#home">All modules</button><button class="sec" type="button" id="retakeBtn">Retake (clear answers)</button></div></div>';
+ return h;}
+
+/* ---------- router ---------- */
+function route(){try{routeInner();}catch(e){app.innerHTML=errCard("The course hit an error while loading this page",e)+'<button class="sec" type="button" data-nav="#home" style="width:100%">Back to all modules</button>';}}
+function errCard(title,e){return '<div class="card flag"><h3>'+esc(title)+'</h3><p>'+esc(e&&e.message?e.message:String(e))+'</p><p class="mute" style="margin:0">If this keeps happening, open the file in Chrome or another full browser.</p></div>';}
+function safe(fn){try{fn();}catch(e){if(window.console&&console.error)console.error(e);}}
+function routeInner(){
+ var hsh=location.hash||"#home",m=/^#m([0-9]+)$/.exec(hsh);
+ if(m&&+m[1]>=1&&+m[1]<=M.length){var i=+m[1]-1,w=M[i].W||[];app.innerHTML=module(i);each(M[i].Q,function(q){safe(function(){applyAns(q);});});
+  safe(function(){if(w.indexOf("calc")>=0)calcUpdate();});safe(function(){if(w.indexOf("practice")>=0)prNew();});safe(function(){if(w.indexOf("recipe")>=0)recUpdate(0);});}
+ else if(hsh==="#cert")app.innerHTML=cert();
+ else app.innerHTML=home();
+ safe(prog);safe(function(){try{app.focus({preventScroll:true});}catch(e){app.focus();}});safe(function(){window.scrollTo(0,0);});}
+
+function setPhase(p){var P=PHASES[p];if(!P)return;
+ each(document.querySelectorAll(".ph"),function(r){var c=(r.getAttribute("class")||"").replace(/ ?\bon\b/g,"");r.setAttribute("class",c+(r.getAttribute("data-ph")===p?" on":""));});
+ each(document.querySelectorAll("[data-phb]"),function(b){b.setAttribute("aria-pressed",b.getAttribute("data-phb")===p?"true":"false");});
+ document.getElementById("phPanel").innerHTML='<h3>'+P.t+'</h3><p><span class="v">VWC:</span> '+P.vw+'</p><p><span class="e">Pore EC:</span> '+P.ec+'</p><p><b>What it means:</b> '+P.m+'</p>';}
+
+var tb=null;
+function init(){
+ app=document.getElementById("app");tb=document.getElementById("themeBtn");
+ try{
+app.addEventListener("click",function(ev){
+ var t=up(ev.target,isClickable);if(!t)return;
+ var nav=t.getAttribute("data-nav");if(nav){go(nav);return;}
+ var qid=t.getAttribute("data-q");
+ if(qid){var q=QBY[qid];if(!q||isAns(q))return;S.ans[q.id]=+t.getAttribute("data-k");save();applyAns(q);prog();var wy=document.querySelector("#"+q.id+" .why");if(wy)wy.focus();return;}
+ if(t.getAttribute("data-ph")){setPhase(t.getAttribute("data-ph"));return;}
+ if(t.getAttribute("data-phb")){setPhase(t.getAttribute("data-phb"));return;}
+ if(t.hasAttribute("data-fl")){var on=!t.classList.contains("flip");cls(t,"flip",on);t.setAttribute("aria-expanded",on?"true":"false");return;}
+ if(t.id==="prCheck"){prCheck();return;}
+ if(t.id==="prNew"){prNew();return;}
+ if(t.id==="dMinus"||t.id==="dPlus"){var sl=document.getElementById("daySl");recUpdate(Math.max(0,Math.min(57,+sl.value+(t.id==="dPlus"?1:-1))));return;}
+ if(t.id==="ckClear"){S.checks={};save();each(document.querySelectorAll("[data-ck]"),function(c){c.checked=false;});return;}
+ if(t.id==="printBtn"){window.print();return;}
+ if(t.id==="retakeBtn"||t.id==="resetBtn"){var all=t.id==="resetBtn";if(window.confirm(all?"Clear all saved progress on this device?":"Clear your answers and retake the course?")){S.ans={};S.practice={tries:0,right:0};if(all)S.checks={};save();go("#home");}return;}
+});
+app.addEventListener("mouseover",function(ev){var r=up(ev.target,isPh);if(r)setPhase(r.getAttribute("data-ph"));});
+app.addEventListener("keydown",function(ev){var r=ev.target;
+ if(isPh(r)&&(ev.key==="Enter"||ev.key===" ")){ev.preventDefault();setPhase(r.getAttribute("data-ph"));}
+ if(r.id==="prIn"&&ev.key==="Enter"){ev.preventDefault();prCheck();}});
+app.addEventListener("focusin",function(ev){var r=ev.target;if(r.getAttribute&&isPh(r))setPhase(r.getAttribute("data-ph"));});
+app.addEventListener("input",function(ev){var t=ev.target;
+ if(t.id==="fcIn"||t.id==="preIn")calcUpdate();
+ else if(t.id==="daySl")recUpdate(+t.value);
+ else if(t.id==="nmIn"){S.name=t.value.slice(0,80);save();var cn=document.getElementById("certName");if(cn)cn.textContent=S.name||"Your name";}});
+app.addEventListener("change",function(ev){var t=ev.target,ck=t.getAttribute&&t.getAttribute("data-ck");if(ck){S.checks[ck]=t.checked;save();}});
+
+/* theme */
+applyTheme=function(){if(S.theme==="auto")document.documentElement.removeAttribute("data-theme");else document.documentElement.setAttribute("data-theme",S.theme);tb.textContent="Theme: "+S.theme.charAt(0).toUpperCase()+S.theme.slice(1);tb.setAttribute("aria-label","Color theme: "+S.theme+". Activate to change.");}
+if(tb)tb.addEventListener("click",function(){S.theme=S.theme==="auto"?"light":S.theme==="light"?"dark":"auto";save();applyTheme();});
+ safe(applyTheme);
+ window.addEventListener("hashchange",route);
+ route();
+ window.__booted=true;
+ }catch(e){window.__booted=true;if(app)app.innerHTML=errCard("The course could not start",e);}
+}
+var applyTheme=function(){};
+if(document.readyState==="loading")document.addEventListener("DOMContentLoaded",init);else init();
+window.__CNDUIT={M:M,ALLQ:ALLQ,RECIPE:RECIPE,TEMPS:TEMPS,stepFor:stepFor};
+})();
+</script>
+</body>
+</html>
